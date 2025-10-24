@@ -1,0 +1,217 @@
+/* ===========================================
+   LAYOUT STYLES WITH CSS VARIABLES
+   =========================================== */
+
+.sidebar {
+    background: var(--bg-sidebar);
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    z-index: var(--z-fixed);
+    transition: all var(--transition-normal);
+    font-family: var(--font-primary);
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all var(--transition-normal);
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-md);
+    margin: var(--space-1) var(--space-2);
+}
+
+.sidebar .nav-link:hover {
+    color: var(--text-inverse);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(var(--space-1));
+}
+
+.sidebar .nav-link.active {
+    color: var(--text-inverse);
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: var(--font-semibold);
+}
+
+.sidebar .nav-link i {
+    width: var(--space-5);
+    text-align: center;
+}
+
+.sidebar-header h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-inverse);
+    margin: 0;
+    padding: var(--space-4) var(--space-3);
+}
+
+.main-content {
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+    margin-left: 250px;
+    transition: all var(--transition-normal);
+    font-family: var(--font-primary);
+}
+
+/* Card Styles */
+.card {
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow);
+    transition: all var(--transition-normal);
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    /* transform: translateY(-2px); */
+}
+
+.card-header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
+    padding: var(--space-4) var(--space-6);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+}
+
+.card-body {
+    padding: var(--space-6);
+    color: var(--text-primary);
+}
+
+/* Sidebar Collapse */
+.sidebar.collapsed {
+    margin-left: -250px;
+}
+
+.sidebar.collapsed + .main-content {
+    margin-left: 0;
+}
+
+/* Top Navigation */
+.navbar {
+    background-color: var(--bg-primary) !important;
+    border-bottom: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-3) var(--space-4);
+}
+
+.navbar .btn-link {
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+    border-radius: var(--radius);
+    padding: var(--space-2);
+}
+
+.navbar .btn-link:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-hover);
+}
+
+.navbar .dropdown-toggle {
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+    transition: all var(--transition-fast);
+}
+
+.navbar .dropdown-toggle:hover {
+    color: var(--text-link);
+}
+
+.dropdown-menu {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2);
+}
+
+.dropdown-item {
+    color: var(--text-primary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius);
+    transition: all var(--transition-fast);
+    font-size: var(--text-sm);
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-link);
+}
+
+.dropdown-divider {
+    border-color: var(--border-primary);
+    margin: var(--space-2) 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -250px;
+        z-index: var(--z-modal);
+    }
+    
+    .sidebar.show {
+        margin-left: 0;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .card {
+        margin-bottom: var(--space-4);
+    }
+    
+    .card-body {
+        padding: var(--space-4);
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        margin-left: -100%;
+    }
+    
+    .sidebar.show {
+        margin-left: 0;
+    }
+    
+    .card-body {
+        padding: var(--space-3);
+    }
+}
+
+/* Animation for smooth transitions */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.sidebar.show {
+    animation: slideIn var(--transition-normal);
+}
+
+.sidebar:not(.show) {
+    animation: slideOut var(--transition-normal);
+}

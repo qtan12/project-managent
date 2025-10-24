@@ -52,7 +52,9 @@ meta: {
     qrCode: String
 },
 images: [String],
-thumbnail: String
+thumbnail: String,
+status: String,
+deleted: Boolean,
 })
 
 const Product = mongoose.model('Product', productSchema, 'products'); //tạo model Product với schema productSchema và collection products

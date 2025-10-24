@@ -1,0 +1,388 @@
+<!-- Dashboard Header -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">
+        <i class="fas fa-tachometer-alt me-2 text-primary"></i>
+        Tổng quan hệ thống
+    </h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+                <i class="fas fa-download me-1"></i>
+                Xuất báo cáo
+            </button>
+        </div>
+        <button type="button" class="btn btn-sm btn-primary">
+            <i class="fas fa-plus me-1"></i>
+            Thêm mới
+        </button>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Tổng doanh thu
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            2,500,000,000₫
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Đơn hàng mới
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            1,234
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Sản phẩm
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            5,678
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-box fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Khách hàng
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            9,876
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts and Tables Row -->
+<div class="row">
+    <!-- Recent Orders -->
+    <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-list me-2"></i>
+                    Đơn hàng gần đây
+                </h6>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow">
+                        <a class="dropdown-item" href="#">Xem tất cả</a>
+                        <a class="dropdown-item" href="#">Xuất Excel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Mã đơn hàng</th>
+                                <th>Khách hàng</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày tạo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#DH001</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>1,500,000₫</td>
+                                <td><span class="badge bg-success">Đã giao</span></td>
+                                <td>2024-01-15</td>
+                            </tr>
+                            <tr>
+                                <td>#DH002</td>
+                                <td>Trần Thị B</td>
+                                <td>2,300,000₫</td>
+                                <td><span class="badge bg-warning">Đang xử lý</span></td>
+                                <td>2024-01-15</td>
+                            </tr>
+                            <tr>
+                                <td>#DH003</td>
+                                <td>Lê Văn C</td>
+                                <td>850,000₫</td>
+                                <td><span class="badge bg-info">Đang giao</span></td>
+                                <td>2024-01-14</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--  -->
+    <!-- Top Products -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-star me-2"></i>
+                    Sản phẩm bán chạy
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">iPhone 15 Pro Max</h6>
+                            <small class="text-muted">Điện thoại</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">156</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">MacBook Air M2</h6>
+                            <small class="text-muted">Laptop</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">89</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Samsung Galaxy S24</h6>
+                            <small class="text-muted">Điện thoại</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">67</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">iPad Pro 12.9"</h6>
+                            <small class="text-muted">Máy tính bảng</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">45</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Section -->
+<div class="row mb-4">
+    <!-- Revenue Chart -->
+    <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4 revenue-chart-card">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <div class="chart-icon-wrapper me-3">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h6 class="m-0 font-weight-bold text-primary chart-title">
+                            Doanh thu theo tháng
+                        </h6>
+                        <small class="text-muted">Tổng quan doanh thu 6 tháng gần nhất</small>
+                    </div>
+                </div>
+                <div class="chart-controls">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-outline-primary active" data-period="6m">6T</button>
+                        <button type="button" class="btn btn-outline-primary" data-period="3m">3T</button>
+                        <button type="button" class="btn btn-outline-primary" data-period="1m">1T</button>
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary ms-2" title="Tùy chỉnh">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="revenue-stats mb-3">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-value text-success">+12.5%</div>
+                                <div class="stat-label">Tăng trưởng</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-value text-primary">300M</div>
+                                <div class="stat-label">Tháng này</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-value text-info">1.8B</div>
+                                <div class="stat-label">Tổng năm</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-area">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="chart-footer mt-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="chart-legend">
+                            <span class="legend-item">
+                                <span class="legend-color" style="background: linear-gradient(45deg, #4BC0C0, #36A2EB);"></span>
+                                Doanh thu (triệu VNĐ)
+                            </span>
+                        </div>
+                        <div class="chart-actions">
+                            <button class="btn btn-sm btn-outline-primary" title="Xuất dữ liệu">
+                                <i class="fas fa-download me-1"></i>
+                                Xuất
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" title="Xem chi tiết">
+                                <i class="fas fa-expand me-1"></i>
+                                Chi tiết
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Distribution Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-chart-pie me-2"></i>
+                    Phân bố doanh thu
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-pie">
+                    <canvas id="salesDistributionChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Additional Charts -->
+<div class="row mb-4">
+    <!-- Orders Chart -->
+    <div class="col-xl-6 col-lg-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-shopping-cart me-2"></i>
+                    Đơn hàng theo ngày
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="ordersChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Categories Chart -->
+    <div class="col-xl-6 col-lg-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-tags me-2"></i>
+                    Danh mục bán chạy
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="categoriesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-bolt me-2"></i>
+                    Thao tác nhanh
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/products/add" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-plus fa-2x mb-2"></i><br>
+                            Thêm sản phẩm
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/orders" class="btn btn-outline-success btn-lg w-100">
+                            <i class="fas fa-shopping-cart fa-2x mb-2"></i><br>
+                            Quản lý đơn hàng
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/customers" class="btn btn-outline-info btn-lg w-100">
+                            <i class="fas fa-users fa-2x mb-2"></i><br>
+                            Quản lý khách hàng
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/reports" class="btn btn-outline-warning btn-lg w-100">
+                            <i class="fas fa-chart-bar fa-2x mb-2"></i><br>
+                            Xem báo cáo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- css -->
+ <link rel="stylesheet" href="/admin/css/dashboard.css">
+
+<script src="/admin/js/dashboard.js"></script>

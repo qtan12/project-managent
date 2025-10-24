@@ -351,7 +351,6 @@ document.addEventListener('DOMContentLoaded', initHeader);
 window.addEventListener('popstate', function() {
     initBottomMenuActiveState();
 });
-
 // ===== EXPORT FUNCTIONS =====
 
 // Export các functions để sử dụng global
@@ -361,3 +360,4 @@ window.TikiHeader = {
     showNotification: showNotification,
     handleSearch: handleSearch
 };
+
