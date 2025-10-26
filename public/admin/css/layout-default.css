@@ -150,19 +150,47 @@
     margin: var(--space-2) 0;
 }
 
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-modal) - 1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
         margin-left: -250px;
         z-index: var(--z-modal);
+        box-shadow: var(--shadow-lg);
+        transform: translateX(-100%);
     }
     
     .sidebar.show {
         margin-left: 0;
+        transform: translateX(0);
     }
     
     .main-content {
         margin-left: 0;
+        width: 100%;
+    }
+    
+    /* Prevent body scroll when sidebar is open on mobile */
+    body.sidebar-open {
+        overflow: hidden;
     }
     
     .card {
@@ -172,46 +200,239 @@
     .card-body {
         padding: var(--space-4);
     }
+    
+    /* Mobile navbar adjustments */
+    .navbar {
+        padding: var(--space-2) var(--space-3);
+        position: sticky;
+        top: 0;
+        z-index: calc(var(--z-fixed) - 1);
+    }
+    
+    .navbar .btn-link {
+        padding: var(--space-2);
+        font-size: var(--text-lg);
+        border: none;
+        background: none;
+    }
+    
+    /* Mobile sidebar header */
+    .sidebar-header h3 {
+        font-size: var(--text-base);
+        padding: var(--space-3) var(--space-2);
+    }
+    
+    /* Mobile nav links */
+    .sidebar .nav-link {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-base);
+        margin: var(--space-1) var(--space-3);
+    }
+    
+    /* Mobile sidebar improvements */
+    .sidebar .nav-link:hover {
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Mobile container adjustments */
+    .container-fluid {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+}
+
+/* Tablet responsive adjustments */
+@media (max-width: 1023px) and (min-width: 769px) {
+    .sidebar {
+        margin-left: -250px;
+        z-index: var(--z-modal);
+        box-shadow: var(--shadow-lg);
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.show {
+        margin-left: 0;
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    /* Prevent body scroll when sidebar is open on mobile */
+    body.sidebar-open {
+        overflow: hidden;
+    }
+    
+    .card {
+        margin-bottom: var(--space-4);
+    }
+    
+    .card-body {
+        padding: var(--space-4);
+    }
+    
+    /* Mobile navbar adjustments */
+    .navbar {
+        padding: var(--space-2) var(--space-3);
+        position: sticky;
+        top: 0;
+        z-index: calc(var(--z-fixed) - 1);
+    }
+    
+    .navbar .btn-link {
+        padding: var(--space-2);
+        font-size: var(--text-lg);
+        border: none;
+        background: none;
+    }
+    
+    /* Mobile sidebar header */
+    .sidebar-header h3 {
+        font-size: var(--text-base);
+        padding: var(--space-3) var(--space-2);
+    }
+    
+    /* Mobile nav links */
+    .sidebar .nav-link {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-base);
+        margin: var(--space-1) var(--space-3);
+    }
+    
+    /* Mobile sidebar improvements */
+    .sidebar .nav-link:hover {
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Mobile container adjustments */
+    .container-fluid {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
 }
 
 @media (max-width: 576px) {
     .sidebar {
         width: 100%;
         margin-left: -100%;
+        transform: translateX(-100%);
     }
     
     .sidebar.show {
         margin-left: 0;
+        transform: translateX(0);
     }
     
     .card-body {
         padding: var(--space-3);
     }
+    
+    /* Extra small mobile adjustments */
+    .navbar {
+        padding: var(--space-2);
+    }
+    
+    .container-fluid {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
+    }
+    
+    .sidebar .nav-link {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-sm);
+    }
+    
+    .sidebar-header h3 {
+        font-size: var(--text-sm);
+        padding: var(--space-2);
+    }
 }
 
-/* Animation for smooth transitions */
+/* Enhanced animations for smooth transitions */
 @keyframes slideIn {
     from {
         transform: translateX(-100%);
+        opacity: 0;
     }
     to {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
 @keyframes slideOut {
     from {
         transform: translateX(0);
+        opacity: 1;
     }
     to {
         transform: translateX(-100%);
+        opacity: 0;
     }
 }
 
-.sidebar.show {
-    animation: slideIn var(--transition-normal);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.sidebar:not(.show) {
-    animation: slideOut var(--transition-normal);
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Mobile sidebar animations */
+@media (max-width: 768px) {
+    .sidebar.show {
+        animation: slideIn 0.3s ease-out;
+    }
+    
+    .sidebar:not(.show) {
+        animation: slideOut 0.3s ease-in;
+    }
+    
+    .sidebar-overlay.show {
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    .sidebar-overlay:not(.show) {
+        animation: fadeOut 0.3s ease-in;
+    }
+}
+
+/* Desktop sidebar animations */
+@media (min-width: 993px) {
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: var(--z-fixed);
+        transition: margin-left var(--transition-normal), transform var(--transition-normal);
+    }
+    
+    .main-content {
+        margin-left: 250px;
+        transition: margin-left var(--transition-normal);
+    }
+    
+    .sidebar.collapsed {
+        margin-left: -250px;
+    }
+    
+    .sidebar.collapsed + .main-content {
+        margin-left: 0;
+    }
 }

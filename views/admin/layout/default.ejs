@@ -63,5 +63,10 @@
     <script src="/js/notification.js"></script>
     
     <script src="/admin/js/layout-default.js"></script>
+    
+    <!-- Page-specific JavaScript -->
+    <% if (typeof pageScript !== 'undefined') { %>
+        <script src="<%= pageScript %>"></script>
+    <% } %>
 </body>
 </html>
