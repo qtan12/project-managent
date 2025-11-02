@@ -104,60 +104,41 @@
     </div>
 </div>
 
-<!-- Filters and Search -->
+<!-- mixin filterStatus -->
 <div class="card mb-4">
     <div class="card-body">
         <div class="row g-3">
-            <div class="col-md-4">
-                <label class="form-label">Tìm kiếm sản phẩm</label>
-                <div class="input-group">
-                    <span class="input-group-text">
-                        <i class="fas fa-search"></i>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm, SKU..." value="<%= typeof filters !== 'undefined' ? filters.search : '' %>">
-                </div>
-            </div>
+            <%- include('../../mixins/searchInput', { keyword: keyword || '' }) %>
             <div class="col-md-3">
                 <label class="form-label">Danh mục</label>
-                <select class="form-select" name="category">
-                    <option value="">Tất cả danh mục</option>
-                    <% if (typeof categories !== 'undefined' && categories.length > 0) { %>
-                        <% categories.forEach(function(category) { %>
-                            <option value="<%= category %>" <%= (typeof filters !== 'undefined' && filters.category === category) ? 'selected' : '' %>>
-                                <%= category %>
-                            </option>
-                        <% }); %>
-                    <% } %>
+                <select class="form-select" data-filter="category">
+                     <!-- lặp qua filterCategory -->
+                <% filterCategory.forEach(item => { %>
+                    <option value="<%= item.category %>"><%= item.name %></option>
+                <% }); %>
                 </select>
             </div>
             <div class="col-md-3">
                 <label class="form-label">Trạng thái</label>
-                <select class="form-select" name="status">
-                    <option value="">Tất cả trạng thái</option>
-                    <option value="active" <%= (typeof filters !== 'undefined' && filters.status === 'active') ? 'selected' : '' %>>Đang bán</option>
-                    <option value="inactive" <%= (typeof filters !== 'undefined' && filters.status === 'inactive') ? 'selected' : '' %>>Ngừng bán</option>
-                    <option value="out_of_stock" <%= (typeof filters !== 'undefined' && filters.status === 'out_of_stock') ? 'selected' : '' %>>Hết hàng</option>
+                <select class="form-select" data-filter="status">
+                     <!-- lặp qua filterStatus -->
+                <% filterStatus.forEach(item => { %>
+                    <option value="<%= item.status %>"><%= item.name %></option>
+                <% }); %>
                 </select>
             </div>
             <div class="col-md-2">
                 <label class="form-label">&nbsp;</label>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-outline-primary" id="filterBtn">
+                <div class="d-grid">
+                    <button class="btn btn-outline-primary">
                         <i class="fas fa-filter me-1"></i>
                         Lọc
-                    </button>
-                    <button class="btn btn-outline-secondary" id="resetBtn" 
-                            title="Reset tất cả filters (Ctrl+R)" 
-                            data-bs-toggle="tooltip">
-                        <i class="fas fa-undo me-1"></i>
-                        Reset
                     </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Products Table -->
 <div class="card border-0 shadow-sm">
     <div class="card-header bg-white border-bottom d-flex justify-content-between align-items-center py-3">
@@ -263,105 +244,7 @@
                         </td>
                     </tr>
                     <% }); %>
-                    <!-- Sample Product 3 -->
-                    <!-- <tr>
-                        <td>
-                            <input type="checkbox" class="form-check-input">
-                        </td>
-                        <td>
-                            <img src="https://via.placeholder.com/60x60" alt="Product" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
-                        </td>
-                        <td>
-                            <div>
-                                <h6 class="mb-1 fw-semibold text-dark">Áo thun nam cao cấp</h6>
-                                <small class="text-muted">Chất liệu cotton 100%</small>
-                            </div>
-                        </td>
-                        <td>
-                            <span class="badge bg-light text-dark fw-medium">AT-NAM-M</span>
-                        </td>
-                        <td class="text-end">
-                            <strong class="text-success fw-bold">299.000₫</strong>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-danger-subtle text-danger fw-medium">0</span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-primary-subtle text-primary fw-medium">Thời trang</span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-danger-subtle text-danger fw-medium">Hết hàng</span>
-                        </td>
-                        <td>
-                            <div class="date-info">
-                                <div class="fw-medium text-dark">10/12/2024</div>
-                                <small class="text-muted">14:30</small>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            <div class="action-buttons d-flex gap-1">
-                                <button class="btn btn-outline-primary btn-sm" title="Xem chi tiết" data-bs-toggle="tooltip">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="btn btn-outline-warning btn-sm" title="Chỉnh sửa" data-bs-toggle="tooltip">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn btn-outline-danger btn-sm" title="Xóa" data-bs-toggle="tooltip">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr> -->
-                    
-                    <!-- Sample Product 4 -->
-                    <!-- <tr>
-                        <td>
-                            <input type="checkbox" class="form-check-input">
-                        </td>
-                        <td>
-                            <img src="https://via.placeholder.com/60x60" alt="Product" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
-                        </td>
-                        <td>
-                            <div>
-                                <h6 class="mb-1 fw-semibold text-dark">Sách "Clean Code"</h6>
-                                <small class="text-muted">Lập trình viên chuyên nghiệp</small>
-                            </div>
-                        </td>
-                        <td>
-                            <span class="badge bg-light text-dark fw-medium">BOOK-CC-001</span>
-                        </td>
-                        <td>
-                            <strong class="text-success fw-bold">199.000₫</strong>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-warning-subtle text-warning fw-medium">45</span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-primary-subtle text-primary fw-medium">Sách</span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-warning-subtle text-warning fw-medium">Ngừng bán</span>
-                        </td>
-                        <td>
-                            <div class="date-info">
-                                <div class="fw-medium text-dark">08/12/2024</div>
-                                <small class="text-muted">14:30</small>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            <div class="action-buttons d-flex gap-1">
-                                <button class="btn btn-outline-primary btn-sm" title="Xem chi tiết" data-bs-toggle="tooltip">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="btn btn-outline-warning btn-sm" title="Chỉnh sửa" data-bs-toggle="tooltip">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn btn-outline-danger btn-sm" title="Xóa" data-bs-toggle="tooltip">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr> -->
+                        
                 </tbody>
             </table>
         </div>
@@ -371,48 +254,27 @@
     <div class="card-footer">
         <div class="d-flex justify-content-between align-items-center">
             <div class="text-muted">
-                <% if (typeof pagination !== 'undefined') { %>
-                    Hiển thị <%= ((pagination.currentPage - 1) * 10) + 1 %>-<%= Math.min(pagination.currentPage * 10, pagination.totalProducts) %> của <%= pagination.totalProducts %> sản phẩm
-                <% } else { %>
-                    Hiển thị sản phẩm
-                <% } %>
+                Hiển thị 1-4 của 156 sản phẩm
             </div>
-            <% if (typeof pagination !== 'undefined' && pagination.totalPages > 1) { %>
             <nav aria-label="Page navigation">
                 <ul class="pagination pagination-sm mb-0">
-                    <% if (pagination.hasPrevPage) { %>
-                        <li class="page-item">
-                            <a class="page-link" href="?<%= createPaginationUrl(pagination.prevPage) %>">Trước</a>
-                        </li>
-                    <% } else { %>
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Trước</a>
-                        </li>
-                    <% } %>
-                    
-                    <% 
-                    // Tính toán trang bắt đầu và kết thúc để hiển thị
-                    let startPage = Math.max(1, pagination.currentPage - 2);
-                    let endPage = Math.min(pagination.totalPages, pagination.currentPage + 2);
-                    
-                    for (let i = startPage; i <= endPage; i++) { %>
-                        <li class="page-item <%= i === pagination.currentPage ? 'active' : '' %>">
-                            <a class="page-link" href="?<%= createPaginationUrl(i) %>"><%= i %></a>
-                        </li>
-                    <% } %>
-                    
-                    <% if (pagination.hasNextPage) { %>
-                        <li class="page-item">
-                            <a class="page-link" href="?<%= createPaginationUrl(pagination.nextPage) %>">Sau</a>
-                        </li>
-                    <% } else { %>
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Sau</a>
-                        </li>
-                    <% } %>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Trước</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Sau</a>
+                    </li>
                 </ul>
             </nav>
-            <% } %>
         </div>
     </div>
 </div>
@@ -523,29 +385,6 @@
 
 .text-danger {
     color: #dc3545 !important;
-}
-
-/* Reset button styling */
-#resetBtn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-#resetBtn:not(:disabled):hover {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    color: white;
-}
-
-/* Filter buttons container */
-.d-grid.gap-2 {
-    gap: 0.5rem !important;
-}
-
-/* Search input focus styling */
-input[placeholder="Nhập tên sản phẩm, SKU..."]:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 </style>
 
